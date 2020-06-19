@@ -404,6 +404,7 @@ h1, h2, h3, h4, h5, h6 {
     slide vertical
 --------------------------------
 */
+
 .slide-vertical .char {
   overflow: hidden;
   color: transparent;
@@ -412,7 +413,7 @@ h1, h2, h3, h4, h5, h6 {
 .slide-vertical .char:before,
 .slide-vertical .char:after {
   visibility: visible !important;
-  color: #5e5e5e !important;
+  color: #1a5e90 !important;
   transition: transform 0.5s cubic-bezier(0.9,0,.2,1) !important;
   transition-delay: calc( 0.2s + ( 0.02s * ( var(--char-index)) ) ) !important;
 }
@@ -432,7 +433,7 @@ h1, h2, h3, h4, h5, h6 {
 .slide-vertical .char:before { transform: translateY(-100%) !important; }
 .slide-vertical:hover .char:before { transform: translateY(0%) !important; }
 .slide-vertical:hover .char:after { transform: translateY(100%) !important; }
- 
+
 /*
 --------------------------------
     shift-right
@@ -467,18 +468,30 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(0.5em) translateX( calc(0.1em * var(--char-index)) );
 }
 
+
+/*end of shift */
+
+
+
+
+
+
+
+
+
+
 #hero {
   width: 100%;
   height: 100vh;
   position: relative;
-  background: url("../img/header.jpg") top center;
+  background: url("../img/hero-bg.jpg") top center;
   background-size: cover;
   position: relative;
 }
 
 #hero:before {
   content: "";
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.8);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -492,17 +505,26 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero h1 {
   margin: 0;
-  font-size: 56px;
-  font-weight: 800px;
-  line-height: 72px;
+  font-size: 65px;
+  font-weight: 600;
+  line-height: 80px;
   color: #124265;
-  font-family: "Raleway", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+#hero h3{
+  color:#124265;
+  margin: 10px 0 0 0;
+  font-size: 30px;
+  font-variant: unset;
+  font-style: bold;
 }
 
 #hero h2 {
-  color: #5e5e5e;
+  color: #16507b;
   margin: 10px 0 0 0;
   font-size: 22px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #hero .btn-get-started {
@@ -876,7 +898,7 @@ section {
 # Testimonials
 --------------------------------------------------------------*/
 .testimonials .testimonial-item {
-  box-sizing: content-box;
+  box-sizing: border-box;
   text-align: center;
   min-height: 320px;
 }
@@ -923,7 +945,7 @@ section {
   margin: 0 15px 15px 15px;
   padding: 20px;
   background: #f3f9fd;
-  position: relative;
+  position: block;
   margin-bottom: 35px;
   border-radius: 6px;
 }
@@ -1299,6 +1321,8 @@ section {
   border-radius: 4px;
   background: #fff;
   box-shadow: 0px 2px 15px rgba(18, 66, 101, 0.08);
+  height: 300px;
+  width: 300px;
 }
 
 .team .member .member-img {
@@ -1554,11 +1578,6 @@ section {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
-
-.contact .row {
-  justify-content: right;
-}
-
 .contact .info {
   width: 100%;
   background: #fff;
@@ -1600,6 +1619,111 @@ section {
 .contact .info .email:hover i, .contact .info .address:hover i, .contact .info .phone:hover i {
   background: #2487ce;
   color: #fff;
+}
+
+.contact .php-email-form {
+  width: 100%;
+  background: #fff;
+}
+
+.contact .php-email-form .form-group {
+  padding-bottom: 8px;
+}
+
+.contact .php-email-form .validate {
+  display: none;
+  color: red;
+  margin: 0 0 15px 0;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.contact .php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.contact .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  -webkit-animation: animate-loading 1s linear infinite;
+  animation: animate-loading 1s linear infinite;
+}
+
+.contact .php-email-form input, .contact .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
+  border-color: #2487ce;
+}
+
+.contact .php-email-form input {
+  height: 44px;
+}
+
+.contact .php-email-form textarea {
+  padding: 10px 12px;
+}
+
+.contact .php-email-form button[type="submit"] {
+  background: #2487ce;
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.contact .php-email-form button[type="submit"]:hover {
+  background: #3194db;
+}
+
+@-webkit-keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /*--------------------------------------------------------------
